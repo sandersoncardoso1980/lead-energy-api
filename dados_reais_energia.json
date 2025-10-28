@@ -1,0 +1,35 @@
+{
+    "data_raspagem": "2025-10-28T04:51:59.223698",
+    "consumo_medio_eletricidade": {
+        "Lisboa": {
+            "residencial": 3850,
+            "comercial_pequeno": 8470,
+            "industrial": 42350
+        },
+        "Porto": {
+            "residencial": 4250,
+            "comercial_pequeno": 9350,
+            "industrial": 46750
+        },
+        "Faro": {
+            "residencial": 4900,
+            "comercial_pequeno": 10780,
+            "industrial": 53900
+        },
+        "Coimbra": {
+            "residencial": 3950,
+            "comercial_pequeno": 8690,
+            "industrial": 43450
+        },
+        "Braga": {
+            "residencial": 4550,
+            "comercial_pequeno": 10010,
+            "industrial": 50050
+        }
+    },
+    "precos": {
+        "eletricidade": 0.24,
+        "gas": 0.1
+    },
+    "fonte": "DGEG (raspado) + Fallback 2024"
+}
