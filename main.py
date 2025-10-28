@@ -10,6 +10,7 @@ import joblib
 import os
 import json
 from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
 
 # === CARREGA DADOS REAIS DO SCRAPER ===
 JSON_DADOS = "dados_reais_energia.json"
@@ -86,7 +87,17 @@ class LeadInput(BaseModel):
 
 # === FASTAPI APP ===
 app = FastAPI(title="Lead Energy AI")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+@app.get("/")
+def home():
+    return {"mensagem": "API de Propostas de Energia - Use POST /proposta"}
 @app.get("/")
 def home():
     return {"mensagem": "API de Propostas de Energia - Use POST /proposta"}
@@ -129,4 +140,5 @@ def gerar_proposta(lead: LeadInput):
             "prioridade": "ALTA" if propensao > 60 else "MÉDIA" if propensao > 30 else "BAIXA"
         }
     except Exception as e:
+
         raise HTTPException(500, str(e))
